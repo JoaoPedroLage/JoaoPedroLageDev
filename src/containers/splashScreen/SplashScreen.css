@@ -8,6 +8,8 @@
 
 .splash-animation-container {
   height: 50vh;
+  width: 100%;
+  align-self: center;
 }
 
 .splash-title-container {
@@ -20,4 +22,23 @@
   font-variant-ligatures: no-common-ligatures;
   -webkit-font-variant-ligatures: no-common-ligatures;
   padding: 0 20px;
+}
+
+/* Media query para telas pequenas */
+@media screen and (max-width: 768px) {
+  .splash-title-container {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .splash-title-container {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .splash-title-container {
+    font-size: 1.2rem;
+  }
 }
