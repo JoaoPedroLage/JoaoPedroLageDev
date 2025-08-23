@@ -25,6 +25,8 @@
   max-width: 100%;
   padding: 15px 20px;
   margin: 0px auto;
+  display: flex;
+  align-items: center;
 }
 
 .header ul {
@@ -68,12 +70,53 @@
   padding: 0 10px;
 }
 
+.nav-language-buttons {
+  display: flex;
+  align-items: center;
+  width: 200px; /* Definindo uma largura fixa em vez de max-width */
+  flex-shrink: 0; /* Impede que o elemento diminua de tamanho */
+  margin-left: 100px;
+  position: relative; /* Garante que o posicionamento seja relativo a este elemento */
+
+  img {
+    width: 70px;
+    margin-right: 5px;
+  }
+
+  .nav-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  button {
+    margin: 5px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    font-size: 12px;
+  }
+
+  button.selected-btn {
+    border: solid 3px green;
+  }
+
+  button:hover {
+    color: rgb(165, 165, 165);
+    cursor: pointer;
+  }
+}
+
+button.selected-btn {
+  border: solid 5px green;
+}
+
 /* menu */
 
 .header .menu {
   clear: both;
   max-height: 0;
   transition: max-height 0.2s ease-out;
+  margin-left: auto; /* Empurra o menu para a direita */
 }
 
 /* menu icon */
@@ -81,10 +124,10 @@
 .header .menu-icon {
   cursor: pointer;
   display: inline-block;
-  float: right;
   padding: 28px 20px;
   position: relative;
   user-select: none;
+  margin-left: auto;
 }
 
 .header .menu-icon .navicon {
@@ -170,13 +213,54 @@
   }
   .header .menu {
     max-height: none;
+    order: 3; /* Garante que o menu fique à direita */
+  }
+  .header .logo {
+    order: 1; /* Logo fica à esquerda */
+  }
+  .nav-language-buttons {
+    order: 2; /* Botões de idioma ficam no meio */
   }
   .header .menu-icon {
     display: none;
   }
 }
+
 @media (max-width: 960px) and (min-width: 768px) {
   .header {
     font-size: 12px;
+  }
+  .nav-language-buttons {
+    width: 150px; /* Um pouco menor em telas médias */
+  }
+  .nav-language-buttons button {
+    height: 35px;
+    width: 50px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .nav-language-buttons {
+    position: absolute;
+    right: 70px;
+    top: 15px;
+    width: auto;
+  }
+  .nav-language-buttons img {
+    width: 30px;
+  }
+  .nav-language-buttons button {
+    height: 30px;
+    width: 45px;
+    font-size: 10px;
+    margin: 2px;
+  }
+  .header .logo {
+    flex-grow: 1;
   }
 }
