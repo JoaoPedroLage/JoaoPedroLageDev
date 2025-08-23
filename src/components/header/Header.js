@@ -1,28 +1,33 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import Headroom from "react-headroom";
 import "./Header.scss";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import StyleContext from "../../contexts/StyleContext";
+import { PortfolioContext } from "../../contexts/PortfolioContext";
+import translate from "../../assets/images/translate.png";
 import {
   greeting,
   workExperiences,
   skillsSection,
   openSource,
-  blogSection,
-  talkSection,
+  // blogSection,
+  // talkSection,
   achievementSection,
   resumeSection
 } from "../../portfolio";
 
 function Header() {
-  const {isDark} = useContext(StyleContext);
   const viewExperience = workExperiences.display;
   const viewOpenSource = openSource.display;
   const viewSkills = skillsSection.display;
   const viewAchievement = achievementSection.display;
-  const viewBlog = blogSection.display;
-  const viewTalks = talkSection.display;
+  // const viewBlog = blogSection.display;
+  // const viewTalks = talkSection.display;
   const viewResume = resumeSection.display;
+
+  const { isDark } = useContext(StyleContext);
+
+  const { isEnglish, setIsEnglish } = useContext(PortfolioContext);
 
   return (
     <Headroom>
@@ -32,52 +37,69 @@ function Header() {
           <span className="logo-name">{greeting.username}</span>
           <span className="grey-color">/&gt;</span>
         </a>
+        <div className="nav-language-buttons">
+          <img src={translate} alt="translate change" />
+          <div className="nav-buttons">
+            <button
+              className={isEnglish ? 'selected-btn' : ''}
+              onClick={() => setIsEnglish(true)}
+            >
+              EN-US
+            </button>
+            <button
+              className={!isEnglish ? 'selected-btn' : ''}
+              onClick={() => setIsEnglish(false)}
+            >
+              PT-BR
+            </button>
+          </div>
+        </div>
         <input className="menu-btn" type="checkbox" id="menu-btn" />
         <label
           className="menu-icon"
           htmlFor="menu-btn"
-          style={{color: "white"}}
+          style={{ color: "white" }}
         >
           <span className={isDark ? "navicon navicon-dark" : "navicon"}></span>
         </label>
         <ul className={isDark ? "dark-menu menu" : "menu"}>
           {viewSkills && (
             <li>
-              <a href="#skills">Skills</a>
+              <a href="#skills">{isEnglish ? 'Skills' : 'Habilidades'}</a>
             </li>
           )}
           {viewExperience && (
             <li>
-              <a href="#experience">Work Experiences</a>
+              <a href="#experience">{isEnglish ? 'Work Experiences' : 'Experiências'}</a>
             </li>
           )}
           {viewOpenSource && (
             <li>
-              <a href="#opensource">Open Source</a>
+              <a href="#opensource">{isEnglish ? 'Open Source' : 'Código Livre'}</a>
             </li>
           )}
           {viewAchievement && (
             <li>
-              <a href="#achievements">Achievements</a>
+              <a href="#achievements">{isEnglish ? 'Achievements' : 'Certificados'}</a>
             </li>
           )}
-          {viewBlog && (
+          {/* {viewBlog && (
             <li>
               <a href="#blogs">Blogs</a>
             </li>
-          )}
-          {viewTalks && (
+          )} */}
+          {/* {viewTalks && (
             <li>
               <a href="#talks">Talks</a>
             </li>
-          )}
+          )} */}
           {viewResume && (
             <li>
-              <a href="#resume">Resume</a>
+              <a href="#resume">{isEnglish ? 'Resume' : 'Currículo'}</a>
             </li>
           )}
           <li>
-            <a href="#contact">Contact Me</a>
+            <a href="#contact">{isEnglish ? 'Contact Me' : 'Entre em contato'}</a>
           </li>
           <li>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
