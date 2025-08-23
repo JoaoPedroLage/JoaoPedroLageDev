@@ -209,17 +209,22 @@ button.selected-btn {
   .header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
   .header .menu {
     max-height: none;
-    order: 3; /* Garante que o menu fique à direita */
+    order: 3; /* Menu fica à direita */
+    margin-left: auto;
   }
   .header .logo {
-    order: 1; /* Logo fica à esquerda */
+    order: 2; /* Logo fica centralizada */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .nav-language-buttons {
-    order: 2; /* Botões de idioma ficam no meio */
+    order: 1; /* Botões de idioma ficam à esquerda */
+    margin-left: 0;
   }
   .header .menu-icon {
     display: none;
@@ -235,7 +240,7 @@ button.selected-btn {
   }
   .nav-language-buttons button {
     height: 35px;
-    width: 50px;
+    width: 40px;
     font-size: 11px;
   }
 }
@@ -244,23 +249,23 @@ button.selected-btn {
   .header {
     justify-content: flex-start;
     flex-wrap: wrap;
+    position: relative;
   }
   .nav-language-buttons {
-    position: absolute;
-    right: 70px;
-    top: 15px;
+    left: -80px;
     width: auto;
   }
   .nav-language-buttons img {
-    width: 30px;
+    width: 40px;
   }
   .nav-language-buttons button {
     height: 30px;
-    width: 45px;
-    font-size: 10px;
+    width: 30px;
+    font-size: 8px;
     margin: 2px;
   }
   .header .logo {
     flex-grow: 1;
+    text-align: center;
   }
 }
