@@ -33,7 +33,7 @@ const greeting = {
 
 const greetingPT = {
   username: "João Pedro Lage",
-  title: "Olá pessoal, eu sou o Joao Pedro",
+  title: "Olá pessoal, eu sou o João Pedro",
   subTitle: emoji(
     "Um desenvolvedor Full Stack apaixonado 🚀 com experiência em construir aplicações Web e Mobile com JavaScript / Reactjs / Nodejs / React Native e outras bibliotecas e frameworks legais!"
   ),
