@@ -22,11 +22,11 @@
 
 .header {
   background-color: $lightBackground1;
-  max-width: 100%;
   padding: 15px 20px;
   margin: 0px auto;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .header ul {
@@ -75,7 +75,6 @@
   align-items: center;
   width: 200px; /* Definindo uma largura fixa em vez de max-width */
   flex-shrink: 0; /* Impede que o elemento diminua de tamanho */
-  margin-left: 100px;
   position: relative; /* Garante que o posicionamento seja relativo a este elemento */
 
   img {
@@ -116,7 +115,6 @@ button.selected-btn {
   clear: both;
   max-height: 0;
   transition: max-height 0.2s ease-out;
-  margin-left: auto; /* Empurra o menu para a direita */
 }
 
 /* menu icon */
@@ -209,21 +207,13 @@ button.selected-btn {
   .header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
   }
   .header .menu {
     max-height: none;
-    order: 3; /* Menu fica à direita */
-    margin-left: auto;
-  }
-  .header .logo {
-    order: 2; /* Logo fica centralizada */
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-right: 0;
   }
   .nav-language-buttons {
-    order: 1; /* Botões de idioma ficam à esquerda */
     margin-left: 0;
   }
   .header .menu-icon {
