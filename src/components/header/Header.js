@@ -75,7 +75,7 @@ function Header() {
           )}
           {viewOpenSource && (
             <li>
-              <a href="#opensource">{isEnglish ? 'Open Source' : 'Código Livre'}</a>
+              <a href="#opensource">{isEnglish ? 'Open Source' : 'Projetos'}</a>
             </li>
           )}
           {viewAchievement && (
