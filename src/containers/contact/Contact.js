@@ -1,20 +1,23 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import "./Contact.scss";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
-import {illustration, contactInfo} from "../../portfolio";
-import {Fade} from "react-reveal";
+import { illustration, contactInfo, contactInfoPT } from "../../portfolio";
+import { Fade } from "react-reveal";
 import email from "../../assets/lottie/email";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 import StyleContext from "../../contexts/StyleContext";
+import { PortfolioContext } from "../../contexts/PortfolioContext";
 
 export default function Contact() {
-  const {isDark} = useContext(StyleContext);
+  const { isDark } = useContext(StyleContext);
+  const { isEnglish } = useContext(PortfolioContext);
+
   return (
     <Fade bottom duration={1000} distance="20px">
       <div className="main contact-margin-top" id="contact">
         <div className="contact-div-main">
           <div className="contact-header">
-            <h1 className="heading contact-title">{contactInfo.title}</h1>
+            <h1 className="heading contact-title">{isEnglish ? contactInfo.title : contactInfoPT.title}</h1>
             <p
               className={
                 isDark
@@ -22,7 +25,7 @@ export default function Contact() {
                   : "subTitle contact-subtitle"
               }
             >
-              {contactInfo.subtitle}
+              {isEnglish ? contactInfo.subtitle : contactInfoPT.subtitle}
             </p>
             <div
               className={
@@ -57,7 +60,7 @@ export default function Contact() {
               <DisplayLottie animationData={email} />
             ) : (
               <img
-                alt="Man working"
+                alt={isEnglish ? "Man working" : "Homem trabalhando"}
                 src={require("../../assets/images/contactMailDark.svg")}
               ></img>
             )}
